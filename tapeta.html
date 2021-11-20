@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<head>
+    <link rel="stylesheet" href="tapetaconf.css" type="text/css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@600&display=swap" rel="stylesheet">
+    <div class="zegar">
+        <script type="text/javascript">
+            
+            function odliczanie()
+            {
+                var dzisiaj = new Date();
+    
+                var dzien = dzisiaj.getDate();
+                var licz_dzien = dzisiaj.getUTCDay();
+                    if (licz_dzien==0) {tekst_dzien="Niedziela"}
+                    if (licz_dzien==1) {tekst_dzien="Poniedziałek"}
+                    if (licz_dzien==2) {tekst_dzien="Wtorek"}
+                    if (licz_dzien==3) {tekst_dzien="Środa"}
+                    if (licz_dzien==4) {tekst_dzien="Czwartek"}
+                    if (licz_dzien==5) {tekst_dzien="Piątek"}
+                    if (licz_dzien==6) {tekst_dzien="Sobota"}
+                miesiac=dzisiaj.getMonth()+1;
+                    if (miesiac==1) {tekst_miesiac="stycznia"}
+                    if (miesiac==2) {tekst_miesiac="lutego"}
+                    if (miesiac==3) {tekst_miesiac="marca"}
+                    if (miesiac==4) {tekst_miesiac="kwietnia"}
+                    if (miesiac==5) {tekst_miesiac="maja"}
+                    if (miesiac==6) {tekst_miesiac="czerwca"}
+                    if (miesiac==7) {tekst_miesiac="lipca"}
+                    if (miesiac==8) {tekst_miesiac="sierpnia"}
+                    if (miesiac==9) {tekst_miesiac="września"}
+                    if (miesiac==10) {tekst_miesiac="października"}
+                    if (miesiac==11) {tekst_miesiac="listopada"}
+                    if (miesiac==12) {tekst_miesiac="grudnia"}
+    
+                var godzina = dzisiaj.getHours();
+                if(godzina<10) godzina = "0"+godzina;
+                var minuta = dzisiaj.getMinutes();
+                if(minuta<10) minuta = "0"+minuta;
+            
+                document.getElementById("czas").innerHTML = godzina+":"+minuta;
+                document.getElementById("data").innerHTML = tekst_dzien+", "+dzien+" "+tekst_miesiac;
+            
+                setTimeout("odliczanie()",1000);
+            
+            }
+        </script>
+    </div>
+</head>
+<body onload="odliczanie();">
+    <div id="tapeta">
+        <div id="czas"></div>
+
+        <div id="data"></div>
+    </div>
+</body>
